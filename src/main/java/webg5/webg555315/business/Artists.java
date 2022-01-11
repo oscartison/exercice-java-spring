@@ -52,4 +52,8 @@ public class Artists  {
         track.setStream(streams + stream);
         trackDB.save(track);
     }
+
+    public List<Track> getTracksBigger(int bigger) {
+        return trackDB.findTracksBiggerThen(bigger);
+    }
 }

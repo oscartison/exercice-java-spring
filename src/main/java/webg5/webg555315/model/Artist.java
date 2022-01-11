@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Artist {
 
     @Getter @Setter private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy="author", fetch=FetchType.LAZY)
     private Set<Track> tracks;
     

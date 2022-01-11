@@ -11,10 +11,19 @@
         
 
         <table th:unless="${#lists.size(artist.tracks)} == 0">
-            <tr><th>Titre</th><th>Stream</th></tr>
+            <tr><th>Titre</th><th>Stream</th><th>Mise à jour</th></tr>
             <tr th:each="track : ${artist.tracks}">
             <td><a th:text="${track.title}"></a></td>
             <td><a th:text="${track.stream}"></a></td>
+            <td>
+            <form th:action="@{/artists/add}" th:object="${songToAdd}" method="post">
+              <input type="hidden" name="songId" th:value="${track.id}" />  
+              <input type="hidden" name="artistId" th:value="${artist.login}" />                       
+              <input type="number" th:field="*{stream}" th:errorclass="errorfield" class="form-control" id="stream">
+              <span th:errors="*{stream}" class ="errorMsg">erreur</span>
+              <input type="submit" value="Envoyer" />
+            </form>
+        </td>
             </tr> </table>
     
         <p th:if="${#lists.size(artist.tracks)} == 0"> Aucune chanson diponible</p>

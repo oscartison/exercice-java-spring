@@ -43,5 +43,14 @@ public class Artist {
         return Objects.hash(login, name);
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            " login='" + getLogin() + "'" +
+            ", name='" + getName() + "'" +
+            "}";
+    }
+
+
 
 }

@@ -39,4 +39,17 @@ public class Artists  {
             return artistDB.findById($id).get();
         }else return null;
     }
+
+        public Track getTrack(Long $id) {     
+            if (trackDB.findById($id).isPresent() ) {
+                return trackDB.findById($id).get();
+            }else return null;
+        }
+
+    public void addStream(Long songId, int stream) {
+        Track track = getTrack(songId);
+        int streams = track.getStream();
+        track.setStream(streams + stream);
+        trackDB.save(track);
+    }
 }

@@ -27,6 +27,7 @@ public class Track {
     @GeneratedValue(generator = "my_gen", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "my_gen", sequenceName = "my_seq", allocationSize = 50)
     @Getter
+    @Setter
     private long id;
 
     @Getter

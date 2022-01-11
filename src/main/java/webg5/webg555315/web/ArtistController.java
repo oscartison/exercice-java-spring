@@ -44,8 +44,7 @@ public class ArtistController {
     @PostMapping("/artists/add")
     public String addCourse(@ModelAttribute("courseToAdd") @Valid Track track, Errors errors, Long songId, String artistId) {
         if (errors.hasErrors()) {
-        
-            return "artistdetail";
+            return "redirect:/artists/" + artistId;
         } else {
             artists.addStream(songId, track.getStream());
             return "redirect:/artists/" + artistId;

@@ -36,7 +36,7 @@ public class Track {
 
     @Getter
     @Setter
-    @Min(0)
+    @Min(1)
     private int stream;
 
     @ManyToOne

@@ -33,4 +33,10 @@ public class Artists  {
         artistDB.findAll().forEach(result::add);
         return result;
     }
+
+    public Artist getArtist(String $id) {     
+        if (artistDB.findById($id).isPresent() ) {
+            return artistDB.findById($id).get();
+        }else return null;
+    }
 }

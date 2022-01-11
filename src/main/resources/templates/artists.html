@@ -9,7 +9,7 @@
     <table th:unless="${#lists.isEmpty(artists)}">
         <tr></tr><th>Nom</th><th>Nombre de chansons</th></tr>
         <tr th:each="artist : ${artists}">
-        <td><a th:text="${artist.name}"></a></td>
+        <td><a th:href="@{/artists/{id}(id=${artist.login})}" th:text="${artist.name}"></a></td>
         <td><a th:text="${#lists.size(artist.tracks)}"></a></td>
         </tr> </table>
 

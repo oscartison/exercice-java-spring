@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout}">
+
+    <main layout:fragment="content">
+
+        <div class="gallery">
+            <img th:src="@{${'/image/' + artist.login + '.jpg'}}">
+            <div class="desc"><a th:text="${artist.name}" ></a></div>
+          </div>
+        
+
+        <table th:unless="${#lists.size(artist.tracks)} == 0">
+            <tr><th>Titre</th><th>Stream</th></tr>
+            <tr th:each="track : ${artist.tracks}">
+            <td><a th:text="${track.title}"></a></td>
+            <td><a th:text="${track.stream}"></a></td>
+            </tr> </table>
+    
+        <p th:if="${#lists.size(artist.tracks)} == 0"> Aucune chanson diponible</p>
+
+    </main>
+
+</html>

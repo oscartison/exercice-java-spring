@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import webg5.webg555315.business.Artists;
+import webg5.webg555315.business.Musique;
 import webg5.webg555315.model.Track;
 
 
@@ -19,13 +19,13 @@ import webg5.webg555315.model.Track;
 @RequestMapping("/api") 
 public class APIController {
     @Autowired 
-    Artists artists;
+    Musique musique;
 
 
 
     @GetMapping("/tracksbigger/{bigger}") 
-    public List<Track> getCourseDetail(@PathVariable("bigger") int bigger) {
-        return artists.getTracksBigger(bigger); 
+    public List<Track> getTracksBigger(@PathVariable("bigger") int bigger) {
+        return musique.getTracksBigger(bigger); 
     }
 }
     

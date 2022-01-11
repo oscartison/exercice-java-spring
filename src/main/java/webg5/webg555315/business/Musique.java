@@ -13,7 +13,7 @@ import webg5.webg555315.model.Track;
 
 
 @Service
-public class Artists  {
+public class Musique  {
 
     @Autowired
     private ArtistDB artistDB;

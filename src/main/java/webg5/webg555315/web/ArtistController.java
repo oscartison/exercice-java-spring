@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import webg5.webg555315.business.Artists;
+import webg5.webg555315.business.Musique;
 import webg5.webg555315.model.Track;
 
 
 @Controller
 public class ArtistController {
     @Autowired
-    private Artists artists;
+    private Musique musique;
     
 
     @GetMapping("/")
@@ -30,13 +30,13 @@ public class ArtistController {
 
     @GetMapping("/artists")
     public String artists(Model model) {
-        model.addAttribute("artists", artists.getArtists());
+        model.addAttribute("artists", musique.getArtists());
         return "artists";
     }
 
     @GetMapping("/artists/{id}")
     public String showDetail(@PathVariable("id") String artistId, Model model) {
-        model.addAttribute("artist", artists.getArtist(artistId));
+        model.addAttribute("artist", musique.getArtist(artistId));
         model.addAttribute("songToAdd", new Track());
         return "artistdetail";
     }
@@ -46,7 +46,7 @@ public class ArtistController {
         if (errors.hasErrors()) {
             return "redirect:/artists/" + artistId;
         } else {
-            artists.addStream(songId, track.getStream());
+            musique.addStream(songId, track.getStream());
             return "redirect:/artists/" + artistId;
         }
     }
